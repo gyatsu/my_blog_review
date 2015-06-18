@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   post '/posts' => 'posts#create'
 
   get '/posts/:id' => 'posts#show'
+
   get '/posts/' => 'posts#index'
+
+  get '/posts/:id/edit' =>'posts#edit'
+  patch 'posts/:id' => 'posts#update'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

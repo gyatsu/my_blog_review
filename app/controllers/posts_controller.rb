@@ -22,6 +22,18 @@ def index
   @posts = Post.all
 end
 
+def edit
+  @post = Post.find(params[:id])
+end
+
+def update
+  @post = Post.find(params[:id])
+
+  @post.update_attributes(post_params)
+
+  redirect_to "/posts/#{@post.id}"
+
+end
 
 private
 
