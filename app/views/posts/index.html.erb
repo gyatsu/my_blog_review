@@ -1,3 +1,4 @@
+<div class="col-md-8">
 <h1>記事一覧</h1>
 
 <% @posts.each do |post| %>
@@ -7,3 +8,7 @@
   </p>
   <p><%= post.created_at.strftime('%Y年%m月%d日') %></p>
 <% end %>
+</div>
+<div class="col-md-4">
+</div>
+
