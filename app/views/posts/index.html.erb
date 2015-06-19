@@ -7,6 +7,8 @@
     <%= truncate(post.body, length: 50) %>
   </p>
   <p><%= post.created_at.strftime('%Y年%m月%d日') %></p>
+  <%= link_to '続きを読む', post_path(post.id), class: "btn btn-default" %>
+
 <% end %>
 </div>
 
