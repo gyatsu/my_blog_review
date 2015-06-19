@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150619232938) do
+ActiveRecord::Schema.define(version: 20150619233454) do
 
   create_table "authors", force: :cascade do |t|
     t.string   "name"
@@ -31,8 +31,9 @@ ActiveRecord::Schema.define(version: 20150619232938) do
     t.string   "title"
     t.text     "body"
     t.string   "category"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "category_id", default: 1, null: false
   end
 
 end
