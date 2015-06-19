@@ -1,59 +1,63 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  def new
+    @post = Post.new
+  end
 
-def new
-  @post = Post.new
-end
+  def create
+    @post = Post.new(post_params)
 
-def create
-  @post = Post.new(post_params)
+    @post.save
 
-  @post.save
+    # ↓あとでやる
+    redirect_to "/posts/#{@post.id}"
 
-  # ↓あとでやる
-  redirect_to "/posts/#{@post.id}"
+  end
 
-end
+  def show
+    # @post = Post.find(params[:id])
+  end
 
-def show
-  @post = Post.find(params[:id])
-end
+  def index
+    @posts = Post.all
+  end
 
-def index
-  @posts = Post.all
-end
+  def edit
+    # @post = Post.find(params[:id])
+  end
 
-def edit
-  @post = Post.find(params[:id])
-end
+  def update
+    # @post = Post.find(params[:id])
 
-def update
-  @post = Post.find(params[:id])
+    @post.update_attributes(post_params)
 
-  @post.update_attributes(post_params)
+    redirect_to "/posts/#{@post.id}"
 
-  redirect_to "/posts/#{@post.id}"
+  end
 
-end
+  def destroy
+    # @post = Post.find(params[:id])
 
-def destroy
-  @post = Post.find(params[:id])
+    @post.destroy
 
-  @post.destroy
-
-  redirect_to "/"
-end
+    redirect_to "/"
+  end
 
 private
 
-def post_params
-  params.require(:post).permit(
-    :title,
-    :body,
-    :category
-    )
+  def post_params
+    params.require(:post).permit(
+      :title,
+      :body,
+      :category
+      )
 
-end
+    end
 
+    def set_post
+      @post = Post.find(params[:id])
+
+    end
 
 
 
