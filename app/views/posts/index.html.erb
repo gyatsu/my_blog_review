@@ -9,6 +9,28 @@
   <p><%= post.created_at.strftime('%Y年%m月%d日') %></p>
 <% end %>
 </div>
-<div class="col-md-4">
-</div>
 
+<div class="col-md-4">
+  <!-- Authorは一人しかいないので、コントローラーなしで呼び出してOK -->
+  <!--  コントローラーが汚れるので、ビュー内部で処理(賛否あり) -->
+    <div class="thumbnail">
+      <% author = Author.first %>
+      <img src="<%= author.image_url %>" alt="著者イメージ">
+      <div class="caption">
+        <h3><%= author.name %></h3>
+        <p><%= author.description %></p>
+      </div>
+    </div>
+    <div class="list-group">
+    <% @posts.each_with_index do |post, index| %>
+      <%# ６個目以上の記事の場合はBreak（each文をその場で終わらせる） %>
+      <% if index >= 5
+           break
+         end
+      %>
+      <%# link_to post.title, post_path(post.id), class: "list-group-item" %>
+      <a href="/posts/<%= post.id %>" class="list-group-item"><%= post.title %></a>
+    <% end %>
+  </div>
+
+</div>
