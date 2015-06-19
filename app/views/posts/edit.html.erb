@@ -1,20 +1,21 @@
-<h1>記事を編集</h1>
+<div class="col-md-12">
+  <h1>記事を編集</h1>
+  <%= form_for @post, url: { action: 'update'} do |f| %>
+  <div class="form-group">
+      <%= f.label "タイトル"%><br>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
 
-<%= form_for @post, url: { action: 'update'} do |f| %>
-<p>
-  タイトル<br>
-  <%= f.text_field :title %>
-</p>
+  <div class="form-group">
+      <%= f.label "カテゴリ"%><br>
+    <%= f.text_field :category, class: "form-control" %>
+  </div>
 
-<p>
-  カテゴリ<br>
-  <%= f.text_field :category %>
-</p>
+  <div class="form-group">
+      <%= f.label "本文"%><br>
+    <%= f.text_field :body, class: "form-control" %>
+  </div>
 
-<p>
-  本文<br>
-  <%= f.text_area :body %>
-</p>
-
-<%= f.submit '編集する' %>
-<% end %>
+  <%= f.submit '編集する', class: "btn btn-primary" %>
+  <% end %>
+</div>
