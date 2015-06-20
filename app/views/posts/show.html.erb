@@ -1,6 +1,6 @@
 <div class="col-md-12">
   <h1><%= @post.title %></h1>
-  <p>カテゴリ：<%= @post.category %></p>
+  <p>カテゴリ：<%= Category.find(@post.category_id).title %></p>
   <p>投稿日:<%= @post.created_at %></p>
   <hr>
   <p><%= simple_format(@post.body) %></p>
