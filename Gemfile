@@ -4,6 +4,11 @@ gem 'kaminari'
 #2,gem list で確認
 #3,indexビューの最終行に追加 <%= paginate @posts %>
 #4,rails g kaminari:views bootstrap3
+gem 'ransack'
+#1,ターミナルで bundle install
+#2,gem list で確認
+#3,
+
 
 
 

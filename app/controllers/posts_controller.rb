@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_q, only: [:new, :index, :show, :edit,:update,:destroy]
   def new
     @post = Post.new
   end
@@ -20,7 +21,10 @@ class PostsController < ApplicationController
 
   def index
 #    @posts = Post.all
-    @posts = Post.page(params[:page])
+#    @posts = Post.page(params[:page])
+    @q = Post.ransack(params[:q])
+    @posts = @q.result.page(params[:page])
+   # @new_posts = Post.find_newest_article
   end
 
   def edit
@@ -57,8 +61,13 @@ private
 
     def set_post
       @post = Post.find(params[:id])
-
     end
+
+    def set_q
+      @q = Post.ransack(params[:q])
+      @posts = @q.result.page(params[:page])
+    end
+
 
 
 
