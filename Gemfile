@@ -1,5 +1,11 @@
 source 'https://rubygems.org'
 gem 'kaminari'
+#1,ターミナルで bundle install --without production 実行
+#2,gem list で確認
+#3,indexビューの最終行に追加 <%= paginate @posts %>
+#4,rails g kaminari:views bootstrap3
+
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
