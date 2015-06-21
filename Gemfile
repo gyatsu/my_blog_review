@@ -8,7 +8,7 @@ gem 'ransack'
 #1,ターミナルで bundle install
 #2,gem list で確認
 #3,
-
+gem 'devise'
 
 
 
