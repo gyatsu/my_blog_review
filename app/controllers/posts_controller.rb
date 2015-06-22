@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :set_q, only: [:new, :index, :show, :edit,:update,:destroy]
+
+
   def new
     @post = Post.new
   end
